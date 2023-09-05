@@ -2,7 +2,7 @@ name: Crawl KdB
 
 on:
   schedule:
-    - cron: '0 16 * * *'
+    - cron: '0 15 * * *'
   workflow_dispatch:
 
 env:
@@ -35,3 +35,12 @@ jobs:
     #   if: startsWith(github.ref, 'refs/tags/')
     #   with:
     #     files: ./dist/kdb.json
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -f ./dist/
+        DATE=$(date -u +"%Y-%m-%d")
+        git commit -m "Update KdB to $DATE"
+        git push
