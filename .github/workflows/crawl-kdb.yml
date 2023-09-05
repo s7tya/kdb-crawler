@@ -1,5 +1,8 @@
 name: Crawl KdB
 
+permissions: 
+  contents: write
+
 on:
   schedule:
     - cron: '0 15 * * *'
@@ -9,7 +12,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  crawl:
     runs-on: ubuntu-latest
 
     steps:
