@@ -73,11 +73,6 @@ pub fn download_csv(client: &Agent, request_url: String, output_file_path: &Path
         ("_outputFormat", "0"),
     ])?;
 
-    // let output_file_name = "dist/kdb.csv";
-    // let output_file_path = Path::new(output_file_name);
-
-    // let output_file_name = output_file_path.file_name();
-
     if output_file_path.exists() {
         return Err(anyhow!("specified file name has already exist"));
     }
