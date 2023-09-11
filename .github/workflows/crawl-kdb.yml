@@ -42,16 +42,15 @@ jobs:
     - name: Check for empty commit
       id: check_empty_commit
       run: |
-        if git diff --exit-code HEAD~1 HEAD; then
-          echo "Empty commit detected"
-          echo "is_empty_commit=true" >> $GITHUB_ENV
+        if [ -z "$(git status --porcelain)" ]; then
+          echo "KdB に差分が存在しないため、以降のタスクをスキップします。"
+          echo "skip_commit=true" >> $GITHUB_ENV
         else
-          echo "Non-empty commit detected"
-          echo "is_empty_commit=false" >> $GITHUB_ENV
+          echo "skip_commit=false" >> $GITHUB_ENV
         fi
 
     - name: Commit files
-      if: env.is_empty_commit == 'false'
+      if: env.skip_commit == 'false'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
