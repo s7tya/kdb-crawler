@@ -49,7 +49,11 @@ pub fn search_courses(client: &Agent, request_url: String) -> String {
     }
 }
 
-pub fn download_csv(client: &Agent, request_url: String, output_file_path: &Path) -> Result<()> {
+pub fn download_courses_csv(
+    client: &Agent,
+    request_url: String,
+    output_file_path: &Path,
+) -> Result<()> {
     let resp = client.post(&request_url).send_form(&[
         ("index", ""),
         ("locale", ""),
@@ -90,7 +94,7 @@ pub fn download_csv(client: &Agent, request_url: String, output_file_path: &Path
     Ok(())
 }
 
-pub fn convert_csv_to_json(
+pub fn convert_courses_csv_to_json(
     csv_file_path: &Path,
     output_file_path: &Path,
     is_pretty: bool,
