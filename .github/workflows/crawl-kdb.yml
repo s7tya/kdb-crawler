@@ -20,6 +20,9 @@ jobs:
       with:
           fetch-depth: 0
 
+    - name: Delete dist/
+      run: rm -r dist/
+
     # - name: Setup Rust
     #   run: |
     #     rustup set profile minimal
@@ -44,7 +47,7 @@ jobs:
     - name: Check for empty commit
       id: check_empty_commit
       run: |
-        if [ -z "$(git status --porcelain --ignored | grep 'dist/')" ]; then
+        if [ -z "$(git status --porcelain --ignored | grep 'M dist/')" ]; then
           echo "KdB に差分が存在しないため、以降のタスクをスキップします。"
           echo "skip_commit=true" >> $GITHUB_ENV
         else
