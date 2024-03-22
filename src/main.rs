@@ -12,11 +12,11 @@ fn main() -> Result<()> {
         let url = kdb::grant_session(&client);
         let url = kdb::search_courses(&client, url);
 
-        let _ = kdb::download_courses_csv(&client, url, &csv_file_path);
+        let _ = kdb::download_courses_csv(&client, url, csv_file_path);
     }
 
     let output_file_path = Path::new("dist/kdb.json");
-    let _ = kdb::convert_courses_csv_to_json(csv_file_path, output_file_path, true)?;
+    kdb::convert_courses_csv_to_json(csv_file_path, output_file_path, true)?;
 
     let output_min_file_path = Path::new("dist/kdb.min.json");
     let _ = kdb::convert_courses_csv_to_json(csv_file_path, output_min_file_path, false);

@@ -140,7 +140,7 @@ pub fn convert_courses_csv_to_json(
 
     let csv_file = File::open(csv_file_path)?;
     let transcoded_reader = DecodeReaderBytesBuilder::new()
-        .encoding(Some(&encoding_rs::SHIFT_JIS))
+        .encoding(Some(encoding_rs::SHIFT_JIS))
         .build(BufReader::new(csv_file));
 
     let mut csv_reader = csv::ReaderBuilder::new()
