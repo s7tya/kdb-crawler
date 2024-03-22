@@ -30,10 +30,19 @@ jobs:
     #     rustup override set stable
     #     rustup component add clippy      
 
+    - name: Cache Rust project
+      id: cache-rust-project
+      uses: actions/cache@v4
+      with:
+        path: ./target/release/kdb-crawler
+        key: ${{ runner.os }}-binary-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/*.rs') }}
+
     - uses: dtolnay/rust-toolchain@stable
+      if: steps.cache-rust-project.outputs.cache-hit != 'true'
 
     - name: Build
       run: cargo build --release
+      if: steps.cache-rust-project.outputs.cache-hit != 'true'
 
     - name: Run binary
       run: ./target/release/kdb-crawler
