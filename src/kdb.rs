@@ -9,7 +9,7 @@ use std::{
 use ureq::Agent;
 
 const KDB_URL: &str = "https://kdb.tsukuba.ac.jp";
-const YEAR: i32 = 2023;
+const YEAR: i32 = 2024;
 
 pub fn grant_session(client: &Agent) -> String {
     let res = client.get(KDB_URL).call();
