@@ -94,50 +94,46 @@ pub fn download_courses_csv(
     Ok(())
 }
 
-pub fn convert_courses_csv_to_json(
-    csv_file_path: &Path,
-    output_file_path: &Path,
-    is_pretty: bool,
-) -> Result<()> {
-    #[derive(Debug, Serialize, Deserialize)]
-    struct Record {
-        #[serde(rename = "科目番号")]
-        code: String,
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct KdbRecord {
+    #[serde(rename = "科目番号")]
+    pub code: String,
 
-        #[serde(rename = "科目名")]
-        name: String,
+    #[serde(rename = "科目名")]
+    name: String,
 
-        #[serde(rename = "授業方法")]
-        instructional_type: String,
+    #[serde(rename = "授業方法")]
+    instructional_type: String,
 
-        #[serde(rename = "単位数")]
-        credits: String,
+    #[serde(rename = "単位数")]
+    credits: String,
 
-        #[serde(rename = "標準履修年次")]
-        standard_year: String,
+    #[serde(rename = "標準履修年次")]
+    standard_year: String,
 
-        #[serde(rename = "実施学期")]
-        module: String,
+    #[serde(rename = "実施学期")]
+    module: String,
 
-        #[serde(rename = "曜時限")]
-        period: String,
+    #[serde(rename = "曜時限")]
+    period: String,
 
-        #[serde(rename = "教室")]
-        classroom: String,
+    #[serde(rename = "教室")]
+    classroom: String,
 
-        #[serde(rename = "担当教員")]
-        instructors: String,
+    #[serde(rename = "担当教員")]
+    instructors: String,
 
-        #[serde(rename = "授業概要")]
-        overview: String,
+    #[serde(rename = "授業概要")]
+    overview: String,
 
-        #[serde(rename = "備考")]
-        remarks: String,
+    #[serde(rename = "備考")]
+    remarks: String,
 
-        #[serde(rename = "データ更新日")]
-        updated_at: String,
-    }
+    #[serde(rename = "データ更新日")]
+    updated_at: String,
+}
 
+pub fn get_kdb_records_from_csv(csv_file_path: &Path) -> Result<Vec<KdbRecord>> {
     let csv_file = File::open(csv_file_path)?;
     let transcoded_reader = DecodeReaderBytesBuilder::new()
         .encoding(Some(encoding_rs::SHIFT_JIS))
@@ -147,20 +143,28 @@ pub fn convert_courses_csv_to_json(
         .trim(csv::Trim::All)
         .from_reader(transcoded_reader);
 
-    let mut output_file = File::create(output_file_path)?;
-    let mut records: Vec<Record> = vec![];
+    let mut records: Vec<KdbRecord> = vec![];
 
-    for result in csv_reader.deserialize::<Record>() {
+    for result in csv_reader.deserialize::<KdbRecord>() {
         let record = result?;
         records.push(record);
     }
 
+    Ok(records)
+}
+
+pub fn write_json(
+    records: &Vec<KdbRecord>,
+    output_file_path: &Path,
+    is_pretty: bool,
+) -> Result<()> {
     let json_data = if is_pretty {
         serde_json::to_string_pretty(&records)?
     } else {
         serde_json::to_string(&records)?
     };
 
+    let mut output_file = File::create(output_file_path)?;
     output_file.write_all(json_data.as_bytes())?;
 
     Ok(())
