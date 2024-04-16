@@ -20,10 +20,10 @@ fn main() -> Result<()> {
     tracing::info!("all: {} courses", courses.len());
 
     let output_file_path = Path::new("dist/kdb.json");
-    write_json(&courses, output_file_path, false)?;
+    write_json(&courses, output_file_path, true)?;
 
     let output_min_file_path = Path::new("dist/kdb.min.json");
-    write_json(&courses, output_min_file_path, true)?;
+    write_json(&courses, output_min_file_path, false)?;
 
     let undergraduate_courses: Vec<_> = courses
         .iter()
@@ -33,10 +33,10 @@ fn main() -> Result<()> {
     tracing::info!("undergrad: {} courses", undergraduate_courses.len());
 
     let output_file_path = Path::new("dist/kdb_undergrad.json");
-    write_json(&undergraduate_courses, output_file_path, false)?;
+    write_json(&undergraduate_courses, output_file_path, true)?;
 
     let output_min_file_path = Path::new("dist/kdb_undergrad.min.json");
-    write_json(&undergraduate_courses, output_min_file_path, true)?;
+    write_json(&undergraduate_courses, output_min_file_path, false)?;
 
     let graduate_courses: Vec<_> = courses
         .iter()
@@ -46,10 +46,10 @@ fn main() -> Result<()> {
     tracing::info!("grad: {} courses", graduate_courses.len());
 
     let output_file_path = Path::new("dist/kdb_grad.json");
-    write_json(&graduate_courses, output_file_path, false)?;
+    write_json(&graduate_courses, output_file_path, true)?;
 
     let output_min_file_path = Path::new("dist/kdb_grad.min.json");
-    write_json(&graduate_courses, output_min_file_path, true)?;
+    write_json(&graduate_courses, output_min_file_path, false)?;
 
     Ok(())
 }
