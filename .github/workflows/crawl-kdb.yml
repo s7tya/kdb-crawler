@@ -1,11 +1,11 @@
 name: Crawl KdB
 
-permissions: 
+permissions:
   contents: write
 
 on:
   schedule:
-    - cron: '0 15 * * *'
+    - cron: "0 15 * * *"
   workflow_dispatch:
 
 env:
@@ -16,59 +16,59 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
+      - uses: actions/checkout@v4
+        with:
           fetch-depth: 0
 
-    - name: Delete dist/
-      run: rm -r dist/
+      - name: Delete dist/
+        run: rm -r dist/
 
-    # - name: Setup Rust
-    #   run: |
-    #     rustup set profile minimal
-    #     rustup install stable
-    #     rustup override set stable
-    #     rustup component add clippy      
+      # - name: Setup Rust
+      #   run: |
+      #     rustup set profile minimal
+      #     rustup install stable
+      #     rustup override set stable
+      #     rustup component add clippy
 
-    - name: Cache Rust project
-      id: cache-rust-project
-      uses: actions/cache@v4
-      with:
-        path: ./target/release/kdb-crawler
-        key: ${{ runner.os }}-binary-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/*.rs') }}
+      - name: Cache Rust project
+        id: cache-rust-project
+        uses: actions/cache@v4
+        with:
+          path: ./target/release/kdb-crawler
+          key: ${{ runner.os }}-binary-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/*.rs') }}
 
-    - uses: dtolnay/rust-toolchain@stable
-      if: steps.cache-rust-project.outputs.cache-hit != 'true'
+      - uses: dtolnay/rust-toolchain@stable
+        if: steps.cache-rust-project.outputs.cache-hit != 'true'
 
-    - name: Build
-      run: cargo build --release
-      if: steps.cache-rust-project.outputs.cache-hit != 'true'
+      - name: Build
+        run: cargo build --release
+        if: steps.cache-rust-project.outputs.cache-hit != 'true'
 
-    - name: Run binary
-      run: ./target/release/kdb-crawler
+      - name: Run binary
+        run: ./target/release/kdb-crawler
 
-    # - name: Upload release asset
-    #   uses: softprops/action-gh-release@v1
-    #   if: startsWith(github.ref, 'refs/tags/')
-    #   with:
-    #     files: ./dist/kdb.json
+      # - name: Upload release asset
+      #   uses: softprops/action-gh-release@v1
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   with:
+      #     files: ./dist/kdb.json
 
-    - name: Check for empty commit
-      id: check_empty_commit
-      run: |
-        if [ -z "$(git status --porcelain --ignored | grep 'M dist/')" ]; then
-          echo "KdB に差分が存在しないため、以降のタスクをスキップします。"
-          echo "skip_commit=true" >> $GITHUB_ENV
-        else
-          echo "skip_commit=false" >> $GITHUB_ENV
-        fi
+      - name: Check for empty commit
+        id: check_empty_commit
+        run: |
+          if [ -z "$(git status --porcelain --ignored | grep 'M dist/')" ]; then
+            echo "KdB に差分が存在しないため、以降のタスクをスキップします。"
+            echo "skip_commit=true" >> $GITHUB_ENV
+          else
+            echo "skip_commit=false" >> $GITHUB_ENV
+          fi
 
-    - name: Commit files
-      if: env.skip_commit == 'false'
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add -f ./dist/
-        DATE=$(date -u +"%Y-%m-%d")
-        git commit -m "Update KdB to $DATE"
-        git push
+      - name: Commit files
+        if: env.skip_commit == 'false'
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -f ./dist/
+          DATE=$(date -u +"%Y-%m-%d")
+          git commit -m "Update KdB to $DATE"
+          git push
