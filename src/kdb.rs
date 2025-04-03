@@ -1,81 +1,105 @@
 use anyhow::{anyhow, Context, Result};
 use encoding_rs_io::DecodeReaderBytesBuilder;
+use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 use std::{
     fs::{self, File},
-    io::{BufReader, Write},
+    io::{BufReader, Read, Write},
     path::Path,
 };
-use ureq::Agent;
 
 const KDB_URL: &str = "https://kdb.tsukuba.ac.jp";
 const YEAR: i32 = 2025;
 
-pub fn grant_session(client: &Agent) -> String {
-    let res = client.get(KDB_URL).call();
+pub fn grant_session(client: &Client) -> Result<String> {
+    let mut resp = client
+        .get(KDB_URL)
+        .send()
+        .context("failed to grant a session")?;
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
-        Err(e) => panic!("failed to grant a session: {}", e),
+    let mut body = String::new();
+    resp.read_to_string(&mut body)?;
+    if body.contains("sys-err-head") {
+        panic!("kdb error");
     }
+
+    Ok(resp.url().to_string())
 }
 
-pub fn search_courses(client: &Agent, request_url: String) -> String {
-    let res = client.post(&request_url).send_form(&[
-        ("index", ""),
-        ("locale", ""),
-        ("nendo", &format!("{}", YEAR)),
-        ("termCode", ""),
-        ("dayCode", ""),
-        ("periodCode", ""),
-        ("campusCode", ""),
-        ("hierarchy1", ""),
-        ("hierarchy2", ""),
-        ("hierarchy3", ""),
-        ("hierarchy4", ""),
-        ("hierarchy5", ""),
-        ("freeWord", ""),
-        ("_orFlg", "1"),
-        ("_andFlg", "1"),
-        ("_gaiyoFlg", "1"),
-        ("_risyuFlg", "1"),
-        ("_excludeFukaikoFlg", "1"),
-        ("_eventId", "searchOpeningCourse"),
-    ]);
+pub fn search_courses(client: &Client, request_url: String) -> Result<String> {
+    let mut resp = client
+        .post(&request_url)
+        .form(&[
+            ("index", ""),
+            ("locale", ""),
+            ("nendo", &format!("{}", YEAR)),
+            ("termCode", ""),
+            ("dayCode", ""),
+            ("periodCode", ""),
+            ("campusCode", ""),
+            ("hierarchy1", ""),
+            ("hierarchy2", ""),
+            ("hierarchy3", ""),
+            ("hierarchy4", ""),
+            ("hierarchy5", ""),
+            ("freeWord", ""),
+            ("_orFlg", "1"),
+            ("_andFlg", "1"),
+            ("_gaiyoFlg", "1"),
+            ("_risyuFlg", "1"),
+            ("_excludeFukaikoFlg", "1"),
+            ("_eventId", "searchOpeningCourse"),
+        ])
+        .send()
+        .context("failed to search courses")?;
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
-        Err(e) => panic!("failed to search courses: {}", e),
+    let mut body = String::new();
+    resp.read_to_string(&mut body)?;
+    if body.contains("sys-err-head") {
+        panic!("kdb error");
     }
+
+    Ok(resp.url().to_string())
 }
 
 pub fn download_courses_csv(
-    client: &Agent,
+    client: &Client,
     request_url: String,
     output_file_path: &Path,
 ) -> Result<()> {
-    let resp = client.post(&request_url).send_form(&[
-        ("index", ""),
-        ("locale", ""),
-        ("nendo", &format!("{}", YEAR)),
-        ("termCode", ""),
-        ("dayCode", ""),
-        ("periodCode", ""),
-        ("campusCode", ""),
-        ("hierarchy1", ""),
-        ("hierarchy2", ""),
-        ("hierarchy3", ""),
-        ("hierarchy4", ""),
-        ("hierarchy5", ""),
-        ("freeWord", ""),
-        ("_orFlg", "1"),
-        ("_andFlg", "1"),
-        ("_gaiyoFlg", "1"),
-        ("_risyuFlg", "1"),
-        ("_excludeFukaikoFlg", "1"),
-        ("_eventId", "output"),
-        ("_outputFormat", "0"),
-    ])?;
+    let mut resp = client
+        .post(&request_url)
+        .form(&[
+            ("index", ""),
+            ("locale", ""),
+            ("nendo", &format!("{}", YEAR)),
+            ("termCode", ""),
+            ("dayCode", ""),
+            ("periodCode", ""),
+            ("hierarchy1", ""),
+            ("hierarchy2", ""),
+            ("hierarchy3", ""),
+            ("hierarchy4", ""),
+            ("hierarchy5", ""),
+            ("freeWord", ""),
+            ("_orFlg", "1"),
+            ("_andFlg", "1"),
+            ("_gaiyoFlg", "1"),
+            ("_syllabiFlg", "1"),
+            ("_engFlg", "1"),
+            ("_risyuFlg", "1"),
+            ("_ryugakuFlg", "1"),
+            ("_excludeFukaikoFlg", "1"),
+            ("_eventId", "output"),
+            ("_outputFormat", "0"),
+        ])
+        .send()?;
+
+    let mut body = String::new();
+    resp.read_to_string(&mut body)?;
+    if body.contains("sys-err-head") {
+        panic!("kdb error");
+    }
 
     if output_file_path.exists() {
         return Err(anyhow!("specified file name has already exist"));
@@ -89,7 +113,7 @@ pub fn download_courses_csv(
 
     let mut output_file = File::create(output_file_path)?;
 
-    let _ = std::io::copy(&mut resp.into_reader(), &mut output_file)?;
+    let _ = std::io::copy(&mut resp, &mut output_file)?;
 
     Ok(())
 }
