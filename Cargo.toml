@@ -10,9 +10,8 @@ anyhow = "1.0.75"
 csv = "1.2.2"
 encoding_rs = "0.8.33"
 encoding_rs_io = "0.1.7"
-meilisearch-sdk = "0.24.1"
+reqwest = { version = "0.12.15", features = ["blocking", "cookies"] }
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.105"
 tracing = "0.1.37"
 tracing-subscriber = "0.3.17"
-ureq = { version = "2.7.1", features = ["cookies", "json"] }
