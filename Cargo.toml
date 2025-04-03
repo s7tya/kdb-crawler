@@ -14,4 +14,4 @@ reqwest = { version = "0.12.15", features = ["blocking", "cookies"] }
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.105"
 tracing = "0.1.37"
-tracing-subscriber = "0.3.17"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }

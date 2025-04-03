@@ -46,7 +46,10 @@ pub fn search_courses(client: &Client, request_url: String) -> Result<String> {
             ("_orFlg", "1"),
             ("_andFlg", "1"),
             ("_gaiyoFlg", "1"),
+            ("_syllabiFlg", "1"),
+            ("_engFlg", "1"),
             ("_risyuFlg", "1"),
+            ("_ryugakuFlg", "1"),
             ("_excludeFukaikoFlg", "1"),
             ("_eventId", "searchOpeningCourse"),
         ])
@@ -70,6 +73,8 @@ pub fn download_courses_csv(
     let mut resp = client
         .post(&request_url)
         .form(&[
+            ("_eventId", "output"),
+            ("_outputFormat", "0"),
             ("index", ""),
             ("locale", ""),
             ("nendo", &format!("{}", YEAR)),
@@ -90,8 +95,6 @@ pub fn download_courses_csv(
             ("_risyuFlg", "1"),
             ("_ryugakuFlg", "1"),
             ("_excludeFukaikoFlg", "1"),
-            ("_eventId", "output"),
-            ("_outputFormat", "0"),
         ])
         .send()?;
 
@@ -112,7 +115,6 @@ pub fn download_courses_csv(
     )?;
 
     let mut output_file = File::create(output_file_path)?;
-
     let _ = std::io::copy(&mut resp, &mut output_file)?;
 
     Ok(())

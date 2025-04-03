@@ -4,9 +4,12 @@ use anyhow::Result;
 use kdb::write_json;
 use reqwest::blocking::Client;
 use std::path::Path;
+use tracing_subscriber::EnvFilter;
 
 fn main() -> Result<()> {
-    tracing_subscriber::fmt().init();
+    tracing_subscriber::fmt()
+        .with_env_filter(EnvFilter::from_default_env())
+        .init();
 
     let csv_file_path = Path::new("dist/kdb.csv");
     if !csv_file_path.exists() {
