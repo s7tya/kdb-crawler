@@ -2,14 +2,14 @@ mod kdb;
 
 use anyhow::Result;
 use kdb::write_json;
-use std::{path::Path, sync::Arc};
+use std::path::Path;
 
 fn main() -> Result<()> {
     tracing_subscriber::fmt().init();
 
     let csv_file_path = Path::new("dist/kdb.csv");
     if !csv_file_path.exists() {
-        let client = Arc::new(ureq::Agent::new());
+        let client = ureq::Agent::new_with_defaults();
         let url = kdb::grant_session(&client);
         let url = kdb::search_courses(&client, url);
 

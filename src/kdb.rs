@@ -6,22 +6,22 @@ use std::{
     io::{BufReader, Write},
     path::Path,
 };
-use ureq::Agent;
+use ureq::{Agent, ResponseExt};
 
 const KDB_URL: &str = "https://kdb.tsukuba.ac.jp";
 const YEAR: i32 = 2025;
 
 pub fn grant_session(client: &Agent) -> String {
-    let res = client.get(KDB_URL).call();
+    let resp = client.get(KDB_URL).call();
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
+    match resp {
+        Ok(v) => v.get_uri().to_string(),
         Err(e) => panic!("failed to grant a session: {}", e),
     }
 }
 
 pub fn search_courses(client: &Agent, request_url: String) -> String {
-    let res = client.post(&request_url).send_form(&[
+    let resp = client.post(&request_url).send_form([
         ("index", ""),
         ("locale", ""),
         ("nendo", &format!("{}", YEAR)),
@@ -43,8 +43,8 @@ pub fn search_courses(client: &Agent, request_url: String) -> String {
         ("_eventId", "searchOpeningCourse"),
     ]);
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
+    match resp {
+        Ok(v) => v.get_uri().to_string(),
         Err(e) => panic!("failed to search courses: {}", e),
     }
 }
@@ -54,7 +54,7 @@ pub fn download_courses_csv(
     request_url: String,
     output_file_path: &Path,
 ) -> Result<()> {
-    let resp = client.post(&request_url).send_form(&[
+    let resp = client.post(&request_url).send_form([
         ("index", ""),
         ("locale", ""),
         ("nendo", &format!("{}", YEAR)),
@@ -76,6 +76,8 @@ pub fn download_courses_csv(
         ("_eventId", "output"),
         ("_outputFormat", "0"),
     ])?;
+    let mut body = resp.into_body();
+    let mut reader = body.as_reader();
 
     if output_file_path.exists() {
         return Err(anyhow!("specified file name has already exist"));
@@ -89,7 +91,7 @@ pub fn download_courses_csv(
 
     let mut output_file = File::create(output_file_path)?;
 
-    let _ = std::io::copy(&mut resp.into_reader(), &mut output_file)?;
+    let _ = std::io::copy(&mut reader, &mut output_file)?;
 
     Ok(())
 }
