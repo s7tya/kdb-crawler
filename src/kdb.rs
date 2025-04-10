@@ -1,85 +1,83 @@
-use anyhow::{anyhow, Context, Result};
+use anyhow::{Context, Result};
 use encoding_rs_io::DecodeReaderBytesBuilder;
+use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 use std::{
     fs::{self, File},
-    io::{BufReader, Write},
+    io::{BufReader, Read, Write},
     path::Path,
 };
-use ureq::Agent;
 
 const KDB_URL: &str = "https://kdb.tsukuba.ac.jp";
 const YEAR: i32 = 2025;
 
-pub fn grant_session(client: &Agent) -> String {
-    let res = client.get(KDB_URL).call();
+fn grant_session(client: &Client) -> Result<String> {
+    let mut resp = client
+        .get(KDB_URL)
+        .send()
+        .context("failed to grant a session")?;
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
-        Err(e) => panic!("failed to grant a session: {}", e),
+    let mut body = String::new();
+    resp.read_to_string(&mut body)?;
+    if body.contains("sys-err-head") {
+        panic!("KdB error");
     }
+
+    Ok(resp.url().to_string())
 }
 
-pub fn search_courses(client: &Agent, request_url: String) -> String {
-    let res = client.post(&request_url).send_form(&[
-        ("index", ""),
-        ("locale", ""),
-        ("nendo", &format!("{}", YEAR)),
-        ("termCode", ""),
-        ("dayCode", ""),
-        ("periodCode", ""),
-        ("campusCode", ""),
-        ("hierarchy1", ""),
-        ("hierarchy2", ""),
-        ("hierarchy3", ""),
-        ("hierarchy4", ""),
-        ("hierarchy5", ""),
-        ("freeWord", ""),
-        ("_orFlg", "1"),
-        ("_andFlg", "1"),
-        ("_gaiyoFlg", "1"),
-        ("_risyuFlg", "1"),
-        ("_excludeFukaikoFlg", "1"),
-        ("_eventId", "searchOpeningCourse"),
-    ]);
+fn search_courses(client: &Client, request_url: String) -> Result<String> {
+    let mut resp = client
+        .post(&request_url)
+        .form(&[
+            ("nendo", format!("{}", YEAR).as_str()),
+            ("freeWord", ""),
+            ("_eventId", "searchOpeningCourse"),
+        ])
+        .send()
+        .context("failed to search courses")?;
 
-    match res {
-        Ok(v) => v.get_url().to_string(),
-        Err(e) => panic!("failed to search courses: {}", e),
+    let mut body = String::new();
+    resp.read_to_string(&mut body)?;
+    if body.contains("sys-err-head") {
+        panic!("KdB error");
     }
+
+    Ok(resp.url().to_string())
 }
 
-pub fn download_courses_csv(
-    client: &Agent,
-    request_url: String,
-    output_file_path: &Path,
-) -> Result<()> {
-    let resp = client.post(&request_url).send_form(&[
-        ("index", ""),
-        ("locale", ""),
-        ("nendo", &format!("{}", YEAR)),
-        ("termCode", ""),
-        ("dayCode", ""),
-        ("periodCode", ""),
-        ("campusCode", ""),
-        ("hierarchy1", ""),
-        ("hierarchy2", ""),
-        ("hierarchy3", ""),
-        ("hierarchy4", ""),
-        ("hierarchy5", ""),
-        ("freeWord", ""),
-        ("_orFlg", "1"),
-        ("_andFlg", "1"),
-        ("_gaiyoFlg", "1"),
-        ("_risyuFlg", "1"),
-        ("_excludeFukaikoFlg", "1"),
-        ("_eventId", "output"),
-        ("_outputFormat", "0"),
-    ])?;
+fn get_courses_csv(client: &Client, request_url: String) -> Result<Vec<u8>> {
+    let resp = client
+        .post(&request_url)
+        .form(&[
+            ("_eventId", "output"),
+            ("_outputFormat", "0"),
+            ("nendo", &format!("{}", YEAR)),
+        ])
+        .send()?;
 
+    let body = resp.bytes()?.to_vec();
+    Ok(body)
+}
+
+pub fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
+    let output_file_path = output_file_path.as_ref();
     if output_file_path.exists() {
-        return Err(anyhow!("specified file name has already exist"));
+        return Err(anyhow::anyhow!("specified file name has already exist"));
     }
+
+    let client = Client::builder()
+        .cookie_store(true)
+        .user_agent(concat!(
+            env!("CARGO_PKG_NAME"),
+            "/",
+            env!("CARGO_PKG_VERSION"),
+        ))
+        .build()
+        .unwrap();
+    let url = grant_session(&client)?;
+    let url = search_courses(&client, url)?;
+    let bytes = get_courses_csv(&client, url)?;
 
     fs::create_dir_all(
         output_file_path
@@ -88,8 +86,7 @@ pub fn download_courses_csv(
     )?;
 
     let mut output_file = File::create(output_file_path)?;
-
-    let _ = std::io::copy(&mut resp.into_reader(), &mut output_file)?;
+    output_file.write_all(&bytes)?;
 
     Ok(())
 }
@@ -151,21 +148,4 @@ pub fn get_kdb_records_from_csv(csv_file_path: &Path) -> Result<Vec<KdbRecord>> 
     }
 
     Ok(records)
-}
-
-pub fn write_json(
-    records: &Vec<KdbRecord>,
-    output_file_path: &Path,
-    is_pretty: bool,
-) -> Result<()> {
-    let json_data = if is_pretty {
-        serde_json::to_string_pretty(&records)?
-    } else {
-        serde_json::to_string(&records)?
-    };
-
-    let mut output_file = File::create(output_file_path)?;
-    output_file.write_all(json_data.as_bytes())?;
-
-    Ok(())
 }
