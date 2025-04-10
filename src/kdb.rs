@@ -60,7 +60,7 @@ fn get_courses_csv(client: &Client, request_url: String) -> Result<Vec<u8>> {
     Ok(body)
 }
 
-pub fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
+fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
     let output_file_path = output_file_path.as_ref();
     if output_file_path.exists() {
         return Err(anyhow::anyhow!("specified file name has already exist"));
@@ -130,11 +130,10 @@ pub struct KdbRecord {
     updated_at: String,
 }
 
-pub fn get_kdb_records_from_csv(csv_file_path: &Path) -> Result<Vec<KdbRecord>> {
-    let csv_file = File::open(csv_file_path)?;
+fn get_kdb_records_from_csv<R: Read>(reader: R) -> Result<Vec<KdbRecord>> {
     let transcoded_reader = DecodeReaderBytesBuilder::new()
         .encoding(Some(encoding_rs::SHIFT_JIS))
-        .build(BufReader::new(csv_file));
+        .build(reader);
 
     let mut csv_reader = csv::ReaderBuilder::new()
         .trim(csv::Trim::All)
@@ -148,4 +147,20 @@ pub fn get_kdb_records_from_csv(csv_file_path: &Path) -> Result<Vec<KdbRecord>> 
     }
 
     Ok(records)
+}
+
+pub fn get_kdb_records_with_cache<P: AsRef<Path>>(path: P) -> Result<Vec<KdbRecord>> {
+    let csv_file_path = path.as_ref();
+    if csv_file_path.exists() {
+        tracing::info!("kdb.csv is exist. download skipped.")
+    } else {
+        download_csv("dist/kdb.csv")?;
+    }
+
+    let csv_file = File::open(csv_file_path)?;
+    let csv_reader = BufReader::new(csv_file);
+
+    let courses = get_kdb_records_from_csv(csv_reader)?;
+
+    Ok(courses)
 }

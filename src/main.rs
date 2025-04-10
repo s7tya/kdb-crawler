@@ -2,8 +2,8 @@ mod kdb;
 mod util;
 
 use anyhow::Result;
-use std::{fs::File, path::Path};
-use tracing::info;
+use kdb::get_kdb_records_with_cache;
+use std::fs::File;
 use tracing_subscriber::EnvFilter;
 use util::WriteJsonExt;
 
@@ -12,14 +12,7 @@ fn main() -> Result<()> {
         .with_env_filter(EnvFilter::from_default_env())
         .init();
 
-    let csv_file_path = Path::new("dist/kdb.csv");
-    if csv_file_path.exists() {
-        info!("kdb.csv is exist. download skipped.")
-    } else {
-        kdb::download_csv("dist/kdb.csv")?;
-    }
-
-    let courses = kdb::get_kdb_records_from_csv(csv_file_path)?;
+    let courses = get_kdb_records_with_cache("dist/kdb.csv")?;
     let (undergraduate_courses, graduate_courses): (Vec<_>, Vec<_>) = courses
         .iter()
         .partition(|course| course.code.starts_with('0'));
