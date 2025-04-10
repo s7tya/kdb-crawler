@@ -1,7 +1,7 @@
 
 # KdB Crawler
 
-KDB の授業データを GitHub Actions でクロールして JSON 形式で提供する Rust 製ツールです。毎日、日本時間の0時にKdBからデータを取得し、差分があった場合にコミットを行います。
+KdB の授業データを GitHub Actions でクロールして JSON 形式で提供する Rust 製ツールです。毎日、日本時間の0時にKdBからデータを取得し、差分があった場合にコミットを行います。
 
 [kdb.json](https://raw.githubusercontent.com/s7tya/kdb-crawler/master/dist/kdb.json)
 [更新履歴](https://github.com/search?q=repo%3As7tya%2Fkdb-crawler+%22Update+KdB+to%22&type=commits)

@@ -3,17 +3,17 @@ use encoding_rs_io::DecodeReaderBytesBuilder;
 use reqwest::blocking::Client;
 use serde::{Deserialize, Serialize};
 use std::{
+    env,
     fs::{self, File},
     io::{BufReader, Read, Write},
     path::Path,
 };
 
-const KDB_URL: &str = "https://kdb.tsukuba.ac.jp";
 const YEAR: i32 = 2025;
 
 fn grant_session(client: &Client) -> Result<String> {
     let mut resp = client
-        .get(KDB_URL)
+        .get(env::var("KDB_URL")?)
         .send()
         .context("failed to grant a session")?;
 
