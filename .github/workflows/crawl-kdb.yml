@@ -59,6 +59,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add --sparse -f ./dist/
-          DATE=$(date -u +"%Y-%m-%d")
+          DATE=$(TZ=Asia/Tokyo date -u +"%Y-%m-%d")
           git commit -m "Update KdB to $DATE"
           git push
