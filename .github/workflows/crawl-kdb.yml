@@ -40,6 +40,8 @@ jobs:
 
       - name: Run binary
         run: ./target/release/kdb-crawler
+        env: 
+          KDB_URL: ${{ vars.KDB_URL }}
 
       - name: Check for empty commit
         id: check_empty_commit

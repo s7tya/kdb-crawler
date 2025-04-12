@@ -8,6 +8,10 @@ use tracing_subscriber::EnvFilter;
 use util::WriteJsonExt;
 
 fn main() -> Result<()> {
+    if cfg!(debug_assertions) {
+        dotenvy::dotenv().ok();
+    }
+
     tracing_subscriber::fmt()
         .with_env_filter(EnvFilter::from_default_env())
         .init();
