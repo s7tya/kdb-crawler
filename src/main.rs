@@ -17,7 +17,7 @@ fn main() -> Result<()> {
         .init();
 
     let courses = get_kdb_records_with_cache("dist/kdb.csv")?;
-    let (undergraduate_courses, graduate_courses): (Vec<_>, Vec<_>) = courses
+    let (graduate_courses, undergraduate_courses): (Vec<_>, Vec<_>) = courses
         .iter()
         .partition(|course| course.code.starts_with('0'));
 
