@@ -11,55 +11,6 @@ use std::{
 
 const YEAR: i32 = 2025;
 
-fn grant_session(client: &Client) -> Result<String> {
-    let mut resp = client
-        .get(env::var("KDB_URL")?)
-        .send()
-        .context("failed to grant a session")?;
-
-    let mut body = String::new();
-    resp.read_to_string(&mut body)?;
-    if body.contains("sys-err-head") {
-        panic!("KdB error");
-    }
-
-    Ok(resp.url().to_string())
-}
-
-fn search_courses(client: &Client, request_url: String) -> Result<String> {
-    let mut resp = client
-        .post(&request_url)
-        .form(&[
-            ("nendo", format!("{}", YEAR).as_str()),
-            ("freeWord", ""),
-            ("_eventId", "searchOpeningCourse"),
-        ])
-        .send()
-        .context("failed to search courses")?;
-
-    let mut body = String::new();
-    resp.read_to_string(&mut body)?;
-    if body.contains("sys-err-head") {
-        panic!("KdB error");
-    }
-
-    Ok(resp.url().to_string())
-}
-
-fn get_courses_csv(client: &Client, request_url: String) -> Result<Vec<u8>> {
-    let resp = client
-        .post(&request_url)
-        .form(&[
-            ("_eventId", "output"),
-            ("_outputFormat", "0"),
-            ("nendo", &format!("{}", YEAR)),
-        ])
-        .send()?;
-
-    let body = resp.bytes()?.to_vec();
-    Ok(body)
-}
-
 fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
     let output_file_path = output_file_path.as_ref();
     if output_file_path.exists() {
@@ -67,7 +18,6 @@ fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
     }
 
     let client = Client::builder()
-        .cookie_store(true)
         .user_agent(concat!(
             env!("CARGO_PKG_NAME"),
             "/",
@@ -75,9 +25,38 @@ fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
         ))
         .build()
         .unwrap();
-    let url = grant_session(&client)?;
-    let url = search_courses(&client, url)?;
-    let bytes = get_courses_csv(&client, url)?;
+
+    let resp = client
+        .post(&env::var("KDB_URL")?)
+        .header("Accept-Language", "ja,ja-JP;q=0.9,en;q=0.8")
+        .form(&[
+            ("pageId", "SB0070"),
+            ("action", "downloadList"),
+            ("hdnFy", format!("{YEAR}").as_str()),
+            ("hdnTermCode", ""),
+            ("hdnDayCode", ""),
+            ("hdnPeriodCode", ""),
+            ("hdnAgentName", ""),
+            ("hdnOrg", ""),
+            ("hdnIsManager", ""),
+            ("hdnReq", ""),
+            ("hdnFac", ""),
+            ("hdnDepth", ""),
+            ("hdnChkSyllabi", "false"),
+            ("hdnChkAuditor", "false"),
+            ("hdnChkExchangeStudent", "false"),
+            ("hdnChkConductedInEnglish", "false"),
+            ("hdnCourse", ""),
+            ("hdnKeywords", ""),
+            ("hdnFullname", ""),
+            ("hdnDispDay", ""),
+            ("hdnDispPeriod", ""),
+            ("hdnOrgName", ""),
+            ("hdnReqName", ""),
+            ("cmbDwldtype", "csv"),
+        ])
+        .send()?;
+    let bytes = resp.bytes()?.to_vec();
 
     fs::create_dir_all(
         output_file_path
@@ -114,9 +93,6 @@ pub struct KdbRecord {
     #[serde(rename = "曜時限")]
     period: String,
 
-    #[serde(rename = "教室")]
-    classroom: String,
-
     #[serde(rename = "担当教員")]
     instructors: String,
 
@@ -136,14 +112,27 @@ fn get_kdb_records_from_csv<R: Read>(reader: R) -> Result<Vec<KdbRecord>> {
         .build(reader);
 
     let mut csv_reader = csv::ReaderBuilder::new()
+        .has_headers(false)
         .trim(csv::Trim::All)
         .from_reader(transcoded_reader);
 
     let mut records: Vec<KdbRecord> = vec![];
 
-    for result in csv_reader.deserialize::<KdbRecord>() {
+    for result in csv_reader.records() {
         let record = result?;
-        records.push(record);
+        records.push(KdbRecord {
+            code: record.get(0).unwrap().to_string(),
+            name: record.get(1).unwrap().to_string(),
+            instructional_type: record.get(2).unwrap().to_string(),
+            credits: record.get(3).unwrap().to_string(),
+            standard_year: record.get(4).unwrap().to_string(),
+            module: record.get(5).unwrap().to_string(),
+            period: record.get(6).unwrap().to_string(),
+            instructors: record.get(7).unwrap().to_string(),
+            overview: record.get(8).unwrap().to_string(),
+            remarks: record.get(9).unwrap().to_string(),
+            updated_at: record.get(17).unwrap().to_string(),
+        });
     }
 
     Ok(records)

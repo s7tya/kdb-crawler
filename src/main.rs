@@ -30,11 +30,11 @@ fn main() -> Result<()> {
         ("kdb_undergrad", &undergraduate_courses),
         ("kdb_grad", &graduate_courses),
     ] {
-        let output_file_path = format!("dist/{}.json", name);
+        let output_file_path = format!("dist/{name}.json");
         let mut file = File::create(output_file_path)?;
         file.write_json(courses, true)?;
 
-        let output_file_path = format!("dist/{}.min.json", name);
+        let output_file_path = format!("dist/{name}.min.json");
         let mut file = File::create(output_file_path)?;
         file.write_json(courses, false)?;
     }
