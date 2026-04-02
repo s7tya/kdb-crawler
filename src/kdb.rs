@@ -9,7 +9,7 @@ use std::{
     path::Path,
 };
 
-const YEAR: i32 = 2025;
+const YEAR: i32 = 2026;
 
 fn download_csv<P: AsRef<Path>>(output_file_path: P) -> Result<()> {
     let output_file_path = output_file_path.as_ref();
