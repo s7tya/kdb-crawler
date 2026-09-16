@@ -23933,6 +23933,32 @@
     "データ更新日": "2026-04-06 14:56:06"
   },
   {
+    "科目番号": "0ABC421",
+    "科目名": "農業経済学",
+    "授業方法": "1",
+    "単位数": "2.0",
+    "標準履修年次": "2",
+    "実施学期": "秋AB",
+    "曜時限": "火1,2",
+    "担当教員": "藤本 丈史",
+    "授業概要": "This course examines agricultural issues in developing countries. In many developing countries, agriculture is a major sector of the economy and plays an important role in food security. However, agricultural sectors in developing countries face a wide range of economic challenges. This course will cover topics such as risk and rural finance, technology adoption, farming strategies, resource management, and climate change. This course explores these issues, using microeconomic theory and microeconometric methods as the main analytical tools. Students are expected to have basic knowledge of statistics, econometrics, and microeconomics. Students who have not taken courses in these subjects should consult the instructor in advance. Students will be evaluated mainly based on their presentations of assigned research papers and a final research proposal. This course is conducted in English.",
+    "備考": "英語で授業。",
+    "データ更新日": "2026-09-15 12:00:58"
+  },
+  {
+    "科目番号": "0ABC422",
+    "科目名": "開発経済学",
+    "授業方法": "1",
+    "単位数": "2.0",
+    "標準履修年次": "2",
+    "実施学期": "秋AB",
+    "曜時限": "水1,2",
+    "担当教員": "ブオング ディン トゥアン グエン",
+    "授業概要": "This graduate course examines why living standards differ so much across countries, and what policy can do about it. The first half covers macro development, including growth theory, institutions, trade and industrial policy, and structural transformation. The second half covers micro development, including poverty and inequality, health and education, agriculture, and behavioral approaches. Each topic pairs a classic reference with recent empirical work, and the course puts substantial weight on the causal inference methods behind that work, including instrumental variables, difference in differences, and regression discontinuity. Assessment is based on a research proposal (80%), following the strict deadline on proposal development (10%) and class participation (10%). Students are expected to have basic knowledge of microeconomics, statistics, and econometrics. Students who have not taken courses in these subjects should consult the instructor in advance. This course is conducted in English.",
+    "備考": "英語で授業。",
+    "データ更新日": "2026-09-15 11:54:53"
+  },
+  {
     "科目番号": "0ABC500",
     "科目名": "国際公共政策リサーチワークショップA",
     "授業方法": "2",
@@ -42060,11 +42086,11 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1・2",
-    "実施学期": "秋AB",
+    "実施学期": "秋B",
     "曜時限": "集中",
     "担当教員": "市川 和芳",
     "授業概要": "発電電力量の約8割を化石燃料を用いた火力発電に頼る我が国において、気候変動の要因である温室効果ガスの削減は喫緊の課題である。本講義では、国内外の最新のエネルギー動向を踏まえ、低炭素化に挑む最新の火力発電技術の取り組みに焦点をあて、(1)最新のエネルギー情勢、(2)火力発電の基礎、(3)革新的高効率技術(A-USC、IGCC、燃料電池など)、(4)バイオマスエネルギー利用技術、(5)ゼロエミッション化技術(CO2回収・利用・固定化、水素利用など)について解説する。また、これらを踏まえ、今後の我が国のエネルギーシステムのあり方について、議論を行う。",
-    "備考": "世話人:金子\n対面",
+    "備考": "世話人:金子\n11/20,12/4,12/10,12/11,12/17,12/18\n対面",
     "データ更新日": "2025-09-01 17:18:16"
   },
   {
@@ -46590,6 +46616,19 @@
     "授業概要": "インターンシップ、砂防キャンプなどの各種講習の参加、資格試験の合格などを通して、地球環境科学の実践的活動を行う。特に、本人の専門を生かした内容を推奨している.実施前に訪問先および担当教員による指導を受け、実施計画書を提出する。また実践後は同様に訪問先および担当教員による指導をもとに実施報告書を提出し、それをもとに達成度の高い学習を行ったかの評価を行う。本実践実習により、知識と理解力および問題解決能力の向上を図る。",
     "備考": "報告書には、地球環境科学実践実習を受講した意見や感想を必ず記載する事。",
     "データ更新日": "2025-12-10 15:30:46"
+  },
+  {
+    "科目番号": "0ANC012",
+    "科目名": "地球環境科学特別研究Ib",
+    "授業方法": "6",
+    "単位数": "3.0",
+    "標準履修年次": "1",
+    "実施学期": "通年",
+    "曜時限": "応談",
+    "担当教員": "山中 勤,浅沼 順,植田 宏昭,恩田 裕一,日下 博幸,呉羽 正昭,辻村 真貴,堤 純,津旨 大輔,松井 圭介,五十嵐 康記,池田 敦,加藤 弘亮,八反地 剛,松下 文経,関口 智寛,森本 健弘,久保 倫子,高橋 純子,山下 亜紀郎,パークナー トーマス,ドアン グアン ヴァン,石井 正好,梶野 瑞王,飯塚 聡,下川 信也,出世 ゆかり",
+    "授業概要": "指導教員やクラス、グループでのディスカッションをもとに、人文地理学、地誌学、地形学、水文科学、大気科学、空間情報科学、環境動態解析学、水災害科学、海洋大気相互システムに関する野外調査方法、論文の読み方・書き方、データ処理方法などの指導を受け、実践する。Ibでは、個々の研究テーマについて、今後必要な科学的な展開について、考察する。また、研究発表会に参加してプレゼンテーション技術や研究の方法論等に関して他者からの学びを得るとともに、分野横断的な理解の深化と視野の拡大を図る。この授業により、知識と理解力、企画力、問題解決能力、表現力、創造力の向上を図る。博士前期課程1年次に履修することが望ましい。",
+    "備考": "全プログラム出席・運営担当・レポート提出(R7年度以前の入学者に限る)",
+    "データ更新日": "2026-09-15 17:19:01"
   },
   {
     "科目番号": "0ANC013",
@@ -66918,10 +66957,10 @@
     "標準履修年次": "1・2",
     "実施学期": "秋B",
     "曜時限": "土3,4",
-    "担当教員": "小泉 公乃",
+    "担当教員": "小泉 公乃,新 出,鎮目 良文,富田 任",
     "授業概要": "本講義では、主に図書館・博物館・文書館(以下、文化施設)を対象として、政策の動向と最先端の実践事例を通した経営のあり方やサービスについて学修する。具体的には、文化施設に関する政策、原則、概念、技法などについて解説するとともに、それらを非営利組織体である文化施設に応用することの展望と限界について検討する。さらに文化施設の政策・法制度、人的資源管理、サービス計画と評価、予算獲得と資金調達、広報、地域連携(官民連携等含む)などについて学修する",
     "備考": "東京キャンパス開講;毎年日本語で授業;図書館情報学専門科目\nオンライン(オンデマンド型)",
-    "データ更新日": "2026-01-15 10:31:05"
+    "データ更新日": "2026-09-16 10:21:39"
   },
   {
     "科目番号": "0AVA101",
