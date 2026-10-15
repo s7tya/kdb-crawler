@@ -23959,6 +23959,19 @@
     "データ更新日": "2026-10-02 10:44:05"
   },
   {
+    "科目番号": "0ABC423",
+    "科目名": "統計科学",
+    "授業方法": "1",
+    "単位数": "2.0",
+    "標準履修年次": "1・2",
+    "実施学期": "秋C春季休業中",
+    "曜時限": "集中",
+    "担当教員": "",
+    "授業概要": "This course is a formal introduction to Statistics. No prior knowledge of probability and statistics is required as all concepts will be developed from the ground up. We will cover a range of topics including descriptive statistics, basics of probability, random variables, distribution and density functions, sampling distributions, point estimation, standard errors, confidence intervals, and hypothesis testing and a simple  regression analysis.",
+    "備考": "英語。オンラインで開講。\n英語で授業。",
+    "データ更新日": "2026-10-15 22:15:08"
+  },
+  {
     "科目番号": "0ABC500",
     "科目名": "国際公共政策リサーチワークショップA",
     "授業方法": "2",
@@ -39304,12 +39317,12 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1",
-    "実施学期": "秋ABC",
-    "曜時限": "応談",
-    "担当教員": "",
+    "実施学期": "秋BC",
+    "曜時限": "集中",
+    "担当教員": "デニス ユウ,陳 少強,大久保 勇男,榊 浩司,長谷 宗明",
     "授業概要": "The aim of this course is to give the knowledge, understand and concept in the area of energy materials science.  The topics that will be discussed include basic principles and methods of power generation, materials properties that restrict photovoltaics performances, stability and eco-friendliness and so on; followed with the properties of organic semiconductors including intrinsic and extrinsic properties, structure-properties relationship, electrical and optoelectronics properties. The energy band and charge transport mechanism, new molecule approaches to high-efficiency photovoltaics devices will also be discussed. From this, the organic/inorganic photovoltaics were introduced, and the relevance simple devices fabrication technique and associated effects, concepts underlying heterojunctions, interface properties, stability and cost-effectiveness for commercials aspects will also be discussed.",
-    "備考": "英語で授業。\n詳細後日周知",
-    "データ更新日": "2025-12-18 20:07:50"
+    "備考": "英語で授業。\n11/16(月),11/30(月),12/7(月),12/14(月),12/21(月) 5,6時限目",
+    "データ更新日": "2026-10-15 09:05:40"
   },
   {
     "科目番号": "0AJR050",
@@ -39317,12 +39330,12 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1",
-    "実施学期": "秋ABC",
+    "実施学期": "秋BC",
     "曜時限": "集中",
-    "担当教員": "",
+    "担当教員": "衛 慶碩,内藤 昌信,青木 寛,パラジュリ ドゥルガ,山本 洋平",
     "授業概要": "This course introduces the recent development of sensor technology, recent trend on IoT and sensors, and nano materials and its application on sensor technology. The various sensors and the materials as its sensitive layers will be describe. Moreover some sensor technology also will be introduce including resistance sensors, electrochemical sensors, and optical sensors. This course will involve the students in preparing tasks and review some papers for each chapter.",
-    "備考": "英語で授業。\n対面(オンライン併用型)\n詳細後日周知",
-    "データ更新日": "2026-03-12 13:21:49"
+    "備考": "英語で授業。\n11/20(金), 12/4(金), 12/18(金), 1/8(金), 1/22(金) 5,6時限目\n対面(オンライン併用型)",
+    "データ更新日": "2026-10-15 08:58:35"
   },
   {
     "科目番号": "0AJR060",
@@ -89969,7 +89982,7 @@
     "曜時限": "集中",
     "担当教員": "森尾 貴広,シン ラジーブ クマル,クマル パンカジ",
     "授業概要": "It is crucial to solve global issues for constructing sustainable society. We tackle the issues of water, waste management, urbanization, eco-system and climate change shown in the Sustainable Development Goals (SDGs), and we explain the causes, mechanism, spatial and temporal variabilities, and solution from the viewpoints of multiple stakeholders.",
-    "備考": "「Global Issues and Society(1C90131)」の取得済みの者は履修できない。\n英語で授業。\n対面",
+    "備考": "「Global Issues and Society(1C90131)」の取得済みの者は履修できない。\n英語で授業。\n1/10, 1/30\n対面",
     "データ更新日": "2025-10-15 11:50:56"
   },
   {
@@ -121895,10 +121908,10 @@
     "標準履修年次": "3",
     "実施学期": "秋AB\n秋ABC",
     "曜時限": "水6\n随時",
-    "担当教員": "小野 正樹,澤田 浩子,田中 祐輔,三好 優花",
+    "担当教員": "小野 正樹,澤田 浩子,田中 祐輔,三好 優花,ブッシュネル ケード コンラン",
     "授業概要": "研究テーマごとにグループを編成し、複数教員による指導体制の中で、リサーチクエスチョンの明確化と、研究計画の立案に取り組む。その後、教員とのチュートリアルを通して、卒業論文調査票を作成し、それに基づき主指導教員・副指導教員を決定する。",
     "備考": "対面",
-    "データ更新日": "2026-08-03 04:16:35"
+    "データ更新日": "2026-10-15 16:37:49"
   },
   {
     "科目番号": "AE10C32",
@@ -146086,12 +146099,12 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "3・4",
-    "実施学期": "秋学期",
+    "実施学期": "秋C",
     "曜時限": "集中",
-    "担当教員": "",
-    "授業概要": "",
-    "備考": "開講する場合は、後日掲示する。",
-    "データ更新日": "2026-02-05 10:33:27"
+    "担当教員": "葛目 陽義,二瓶 雅之",
+    "授業概要": "地球温暖化や環境問題の解決に資するエネルギー関連化学に焦点を当て、二酸化炭素排出を制限しながらエネルギーを製造・貯蔵・発電するシステム(燃料電池、太陽電池、キャパシタ、電池など)の発電効率の向上に関する最先端の研究に関する講義を行う。",
+    "備考": "2/2,2/3\n対面",
+    "データ更新日": "2026-10-15 16:33:01"
   },
   {
     "科目番号": "FE14181",
@@ -154575,12 +154588,12 @@
     "授業方法": "1",
     "単位数": "2.0",
     "標準履修年次": "1",
-    "実施学期": "秋AB",
+    "実施学期": "秋A\n秋B",
     "曜時限": "金3,4",
     "担当教員": "加藤 誠",
     "授業概要": "解析学の基礎として,実数,関数,数列ならびに連続性や極限などの基本概念と,1変数関数の微分法および積分法について講義を行う。",
     "備考": "履修者の移動調整等のため,秋A開始の専門導入科目の事前登録期限までに履修申請をしていること。\n定員を超過した場合は,履修調整を行う場合がある(知識情報・図書館学類生および総合学域群生(知識情報・図書館学類への移行希望者)で情報数学A(GA15141)を履修しているもの)優先。また,クラス間での履修者の移動調整を行う場合もある。\n対面(オンライン併用型)",
-    "データ更新日": "2026-08-25 07:33:25"
+    "データ更新日": "2026-10-14 17:09:59"
   },
   {
     "科目番号": "GA18212",
