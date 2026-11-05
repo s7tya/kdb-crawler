@@ -31179,11 +31179,11 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1・2",
-    "実施学期": "通年",
+    "実施学期": "秋C",
     "曜時限": "集中",
     "担当教員": "角替 敏昭",
     "授業概要": "地球史における地球表層および内部の進化プロセスについて講義する。地球進化学的な視点から地球の表層(たとえば地層、地殻、大陸の形成、生物の進化と絶滅、付加体の形成、プレート運動など)、および内部(地球の層状構造の形成、地震の発生、マグマの発生、鉱物の相転移など)で起こる様々な地質学的現象に関する知識と基本的な研究能力を修得するとともに、その背後にある基本原理を探求する能力を身につけることができる。地球科学の研究コンプライアンスに関わる内容を含む。",
-    "備考": "",
+    "備考": "2/1,2/2",
     "データ更新日": "2025-12-19 17:00:03"
   },
   {
@@ -41986,7 +41986,7 @@
     "曜時限": "集中",
     "担当教員": "松本 聡,水谷 忠均,岡本 篤",
     "授業概要": "宇宙機の熱制御技術と構造・材料技術、宇宙環境利用技術、月・惑星探査技術に関して講義を行う。",
-    "備考": "世話人: 藤野\nオンライン(オンデマンド型)",
+    "備考": "世話人: 藤野\n1/12,1/13,1/14\nオンライン(オンデマンド型)",
     "データ更新日": "2024-10-08 13:48:05"
   },
   {
@@ -43854,12 +43854,12 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1・2",
-    "実施学期": "秋B",
+    "実施学期": "秋BC",
     "曜時限": "集中",
     "担当教員": "角替 敏昭",
     "授業概要": "地球進化科学に関する国内外の最新の研究トピックについて講義する。特に受講生は現在の各研究分野の動向と今後の方向性を理解することにより、自身の研究の将来計画や研究目標、社会への貢献方法などについて考察する。本講義により、知識と理解力および問題解決能力を向上させ、理論的な思考を養い、専門領域を超えた自らの研究能力の向上に役立てる。本講義では、生物圏変遷科学、地圏変遷科学、地球変動科学、惑星資源科学、岩石学、および鉱物学のうち1分野の内容を中心に扱い、授業内容は毎年変更する。",
-    "備考": "12/4,12/11\n対面",
-    "データ更新日": "2025-12-17 14:23:41"
+    "備考": "12/3,12/11,12/18,1/21,1/22\n対面",
+    "データ更新日": "2026-11-05 14:26:09"
   },
   {
     "科目番号": "0AN0401",
@@ -45119,7 +45119,7 @@
     "曜時限": "集中",
     "担当教員": "ロンバルド ファビエン クロード レノー,松倉 千昭,ペトリアック ピエール",
     "授業概要": "ポストゲノミクスの研究において、メタボロミクスは新たなオミクスのツールとして、ホワイトバイオテクノロジーやグリーンバイオテクノロジー、栄養学、植物生理学、微生物学などの多くの生物関連分野で注目されている。メタボロミクスは、生物において特定の表現型を特徴付ける代謝プロファイルの総合的な研究に基づいている。この科目では、生物学におけるメタボロミクスを用いた研究手法について概説し、メタボロミクスを行う上での様々な技術を紹介する。講義は英語で行う。",
-    "備考": "0AVC208と同一。\n1/4",
+    "備考": "0AVC208と同一。\n1/4,1/5,1/6,1/7,1/8",
     "データ更新日": "2025-01-21 17:22:38"
   },
   {
@@ -46727,11 +46727,11 @@
     "授業方法": "1",
     "単位数": "1.0",
     "標準履修年次": "1・2",
-    "実施学期": "通年",
+    "実施学期": "秋B",
     "曜時限": "集中",
     "担当教員": "角替 敏昭",
     "授業概要": "地球進化科学に関する国内外の最新の研究トピックを講義する。特に受講生は現在の各研究分野の動向と今後の方向性を理解することにより、自身の研究の将来計画や研究目標、社会への貢献方法などについて考察する。本講義により、知識と理解力および問題解決能力を向上させ、理論的な思考を養い、専門領域を超えた自らの研究能力の向上に役立てる。講師未定。なお、非常勤講師予算の都合により開講されないことがある。",
-    "備考": "",
+    "備考": "12/21,12/22",
     "データ更新日": "2025-01-20 16:39:42"
   },
   {
@@ -67791,7 +67791,7 @@
     "曜時限": "集中",
     "担当教員": "ロンバルド ファビエン クロード レノー,松倉 千昭,ペトリアック ピエール",
     "授業概要": "ポストゲノミクスの研究において、メタボロミクスは新たなオミクスのツールとして、ホワイトバイオテクノロジーやグリーンバイオテクノロジー、栄養学、植物生理学、微生物学などの多くの生物関連分野で注目されている。メタボロミクスは、生物において特定の表現型を特徴付ける代謝プロファイルの総合的な研究に基づいている。この科目では、生物学におけるメタボロミクスを用いた研究手法について概説し、メタボロミクスを行う上での様々な技術を紹介する。講義は英語で行う。",
-    "備考": "0ANB013と同一。\n1/4\n対面",
+    "備考": "0ANB013と同一。\n1/4,1/5,1/6,1/7,1/8\n対面",
     "データ更新日": "2025-01-21 17:22:38"
   },
   {
@@ -107166,10 +107166,10 @@
     "標準履修年次": "1 - 4",
     "実施学期": "秋学期",
     "曜時限": "随時",
-    "担当教員": "福嶋 美佐子,小野 裕子,阿部 淳一 ピーター,MENA Aaron,LIU Soraya",
+    "担当教員": "福嶋 美佐子,小野 裕子,阿部 淳一 ピーター,MENA Aaron,LIU Soraya,野村 名可男",
     "授業概要": "秋学期ないし春季休業期間に国内を共修の場とし、本学ないし海外協定校の外国人学生と本学の日本人大学院生、国内企業等が参加し、地球規模課題などの解決を図るための多文化共修を行う。これにより、グローバルな環境下で文化や専門分野の相違を超えて多彩なステークホルダーと協働し、課題の発見・分析・解決に挑むスキルとマインドセットを習得する。",
     "備考": "履修登録の方法は担当教員の指示に従うこと。学生側から登録できないので注意。 成績確定は、学期末になることに注意。",
-    "データ更新日": "2026-10-27 10:48:35"
+    "データ更新日": "2026-11-05 09:44:51"
   },
   {
     "科目番号": "8331403",
@@ -115995,8 +115995,8 @@
     "曜時限": "",
     "担当教員": "",
     "授業概要": "言語学の入門レベルの英文テキストの読解を通して、英語で書かれた学術論文を正確に読む力を養いながら、言語学の基礎知識と科学的研究の方法論を学ぶ。",
-    "備考": "履修制限を設けることがある。開講学期は開講年度により異なる(令和7年度は秋ABモジュール)。\n2026年度より4年おき開講。\n2026年度開講せず。\n対面",
-    "データ更新日": "2025-12-12 16:46:08"
+    "備考": "履修制限を設けることがある。開講学期は開講年度により異なる(令和7年度は秋ABモジュール)。\n2026年度開講せず。\n対面",
+    "データ更新日": "2025-12-06 15:30:39"
   },
   {
     "科目番号": "AB95C71",
@@ -116021,8 +116021,8 @@
     "曜時限": "月4",
     "担当教員": "矢澤 翔",
     "授業概要": "言語学の入門レベルの英文テキストの読解を通して、英語で書かれた学術論文を正確に読む力を養いながら、言語学の基礎知識と科学的研究の方法論を学ぶ。",
-    "備考": "履修制限を設けることがある。開講学期は開講年度により異なる(令和8年度は秋ABモジュール)。\n2026年度より4年おき開講。\n対面",
-    "データ更新日": "2026-10-05 15:40:02"
+    "備考": "履修制限を設けることがある。開講学期は開講年度により異なる(令和8年度は秋ABモジュール)。\n2026年度より3年おき開講。\n対面",
+    "データ更新日": "2026-11-05 11:27:43"
   },
   {
     "科目番号": "AB95E12",
@@ -153618,7 +153618,7 @@
     "担当教員": "関場 大一郎",
     "授業概要": "After a brief historical review, we will cover the basics of quantum theory from the perspective of wave mechanics. This includes a discussion of the wavefunction, the probability interpretation, operators, and the Schr?dinger equation. We will then consider simple one-dimensional scattering and bound state problems. Next, we will cover the mathematical foundations needed to do quantum mechanics from a more modern perspective. We will review the necessary elements of matrix mechanics and linear algebra, such as finding eigenvalues and eigenvectors, computing the trace of a matrix, and finding out if a matrix is Hermitian or unitary. We will then cover Dirac notation and Hilbert spaces. The postulates of quantum mechanics will then be formalized and illustrated with examples.",
     "備考": "For students enrolled in 2020 or later.\n英語で授業。\n対面",
-    "データ更新日": "2024-10-11 11:33:12"
+    "データ更新日": "2026-11-05 09:05:44"
   },
   {
     "科目番号": "FJ12241",
@@ -153631,7 +153631,7 @@
     "担当教員": "関場 大一郎",
     "授業概要": "We will discuss the mathematical foundations of quantum theory with three important cases: angular momentum and spin, the harmonic oscillator, and an introduction to the physics of the hydrogen atom. Other topics covered include the density operator, the Bloch vector, and two-state systems.",
     "備考": "For students enrolled in 2020 or later\n英語で授業。\n対面",
-    "データ更新日": "2024-10-11 11:44:17"
+    "データ更新日": "2026-11-05 09:06:46"
   },
   {
     "科目番号": "FJ12251",
@@ -153644,7 +153644,7 @@
     "担当教員": "関場 大一郎",
     "授業概要": "We will study advanced topics from non-relativistic quantum theory such as scattering, identical particles, addition of angular momentum, higher Z atoms, and the WKB approximation.",
     "備考": "Not open in 2022. For students enrolled in 2020 or later.\n英語で授業。\n対面",
-    "データ更新日": "2025-01-20 14:37:34"
+    "データ更新日": "2026-11-05 09:07:53"
   },
   {
     "科目番号": "FJ12301",
@@ -153761,7 +153761,7 @@
     "担当教員": "伊達 央,望山 洋",
     "授業概要": "This course introduces the feedback control theory for linear dynamical systems. First, system modeling is considered in frequency, Laplace, and time domains with the notions of frequency transfer function, transfer function, and impulse response. Then, the pros and cons of feedback control are explained in comparison with feedforward control. Finally, control system design is also treated for stabilization as well as better steady-state and transient performances.",
     "備考": "英語で授業。\n対面\nHybrid (face-to-face and online(synchronous)). The recorded course movies will also be available for later viewing.",
-    "データ更新日": "2024-01-25 13:44:42"
+    "データ更新日": "2026-11-05 09:20:42"
   },
   {
     "科目番号": "FJ15101",
@@ -153787,7 +153787,7 @@
     "担当教員": "横田 茂",
     "授業概要": "This course covers the principal concepts and methods of fluid dynamics. Topics include basic laws of fluids, analysis of irrotational flow and vortex, introduction to compressible flows and viscos flows.",
     "備考": "英語で授業。\nオンライン(オンデマンド型)\nThis course cannot be taken by students who have already taken Fluid Dynamics I.",
-    "データ更新日": "2023-05-23 12:02:25"
+    "データ更新日": "2026-11-05 09:25:05"
   },
   {
     "科目番号": "FJ16021",
@@ -153891,7 +153891,7 @@
     "担当教員": "仝 ?民,沈 ?,亀田 敏弘",
     "授業概要": "Project-based learning opportunities are provided. The students continue to carry out research-based studies at two labs under the supervision of the laboratory academic advisors. Students are expected to complete their undergraduate research theses on each theme. The students who are allowed to focus on one research theme are required, in addition to their undergraduate research thesis, to submit at least one refereed paper that must be accepted before completing PBL IV.",
     "備考": "Not open in 2022.\n英語で授業。\n対面(オンライン併用型)\nOnly for IDE students",
-    "データ更新日": "2026-01-20 11:10:56"
+    "データ更新日": "2026-11-05 09:34:30"
   },
   {
     "科目番号": "FJ19043",
@@ -153956,7 +153956,7 @@
     "担当教員": "白木 賢太郎",
     "授業概要": "自身の研究成果を効果的に発表する方法を、学外の学会等での発表活動を通じて習得する。",
     "備考": "総合理工学位プログラム生に限る。\n英語で授業。\n対面(オンライン併用型)",
-    "データ更新日": "2023-12-06 17:09:15"
+    "データ更新日": "2026-11-05 09:35:42"
   },
   {
     "科目番号": "FJ19111",
@@ -153969,7 +153969,7 @@
     "担当教員": "白木 賢太郎",
     "授業概要": "自身の研究成果を効果的に発表する方法を、学外の学会等での発表活動を通じて習得する。",
     "備考": "総合理工学位プログラム生に限る。\n英語で授業。\n対面(オンライン併用型)",
-    "データ更新日": "2023-12-06 17:10:27"
+    "データ更新日": "2026-11-05 09:36:15"
   },
   {
     "科目番号": "FJ19121",
@@ -153982,7 +153982,7 @@
     "担当教員": "白木 賢太郎",
     "授業概要": "自身の研究成果を効果的に発表する方法を、学外の学会等での発表活動を通じて習得する。",
     "備考": "総合理工学位プログラム生に限る。\n英語で授業。\nオンライン(対面併用型)",
-    "データ更新日": "2023-12-06 17:14:53"
+    "データ更新日": "2026-11-05 09:36:37"
   },
   {
     "科目番号": "FJ19131",
@@ -153995,7 +153995,7 @@
     "担当教員": "白木 賢太郎",
     "授業概要": "自身の研究成果を効果的に発表する方法を、学外の学会等での発表活動を通じて習得する。",
     "備考": "総合理工学位プログラム生に限る。\n英語で授業。\n対面(オンライン併用型)",
-    "データ更新日": "2023-12-06 17:14:12"
+    "データ更新日": "2026-11-05 09:37:04"
   },
   {
     "科目番号": "FJ20004",
@@ -154021,7 +154021,7 @@
     "担当教員": "シャーミン ソニア",
     "授業概要": "Following “Linear Algebra I”’, “Linear Algebra II” will also concentrate on the basics of linear algebra. Emphasis will be given to topics that \nwill be useful in other disciplines, such as determinants, eigenvalues, \npositive definite matrices, Fourier series and the Fast Fourier \nTransform. Some homework problems may require you to use a program such as MATLAB or Mathematica, an important tool for numerical linear algebra.\n No previous programming experience is required.",
     "備考": "英語で授業。\n対面(オンライン併用型)\n(i.e. Face-to-Face+Online (Asynchronous))",
-    "データ更新日": "2026-10-28 16:15:08"
+    "データ更新日": "2026-11-05 09:38:27"
   },
   {
     "科目番号": "FJ20124",
@@ -154073,7 +154073,7 @@
     "担当教員": "イスラム モニルル ムハマド",
     "授業概要": "This course introduces basics of probability theory and statistics. This course will be mainly oriented to interpret physical problems in engineering and natural sciences through application of probability theory and statistics. Evaluation will be done through class quiz,  homework on regular basis, and final examinations.",
     "備考": "英語で授業。\n対面\ninterdepartmental course\nface-to-face, Online(Asynchronous) and Online(Synchronous)",
-    "データ更新日": "2023-02-13 18:43:55"
+    "データ更新日": "2026-11-05 09:40:53"
   },
   {
     "科目番号": "FJ22004",
@@ -154086,7 +154086,7 @@
     "担当教員": "吉田 昭二",
     "授業概要": "This course introduces the classical theory of electromagnetism at an undergraduate level. It begins with the fundamental laws and relations governing electrostatic force, electric field and electric potential. These quantities are calculated based on a given system of charges or a given charge distribution. The course also continues with work and energy in electrostatics, electric fields in matter (the concepts of polarization and linear dielectrics), as well as electric fields due to polarized objects.",
     "備考": "英語で授業。\n対面(オンライン併用型)\nface to face and some meetings online. recording the face-to-face classes, in case there are any students who are unable to be physically present.",
-    "データ更新日": "2023-10-02 15:02:26"
+    "データ更新日": "2026-11-05 09:43:36"
   },
   {
     "科目番号": "FJ22014",
