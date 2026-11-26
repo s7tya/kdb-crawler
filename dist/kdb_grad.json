@@ -15620,10 +15620,10 @@
     "標準履修年次": "1 - 5",
     "実施学期": "秋AB",
     "曜時限": "集中",
-    "担当教員": "上條 隆志,飯田 義彦,三ツ井 聡美,飯島 大智,川田 清和,澤田 聖人,吉田 正人,横井 智之",
+    "担当教員": "上條 隆志,飯田 義彦,三ツ井 聡美,飯島 大智,川田 清和,澤田 聖人,吉田 正人,横井 智之,LEE WAN YI",
     "授業概要": "自然保護に関わるトピックについてオムニバス方式で講義を行う。主な内容は、「自然保護総論」、「生物多様性の保全」、「野生動物管理」、「島嶼生態系の保全」、「両生類・爬虫類の保全生態学」、「鳥類の保全生態学」、「自然保護法制度」、「ジオパークとエコパーク」、「自然保護と地域コミュニティー」などである。講義は、自然保護寄附講座サーティフィケートプログラムの担当教員が中心となって実施する。自然科学と社会科学の両面をとりいれた学際的な講義構成とする。",
     "備考": "11/26,12/3,12/10,12/17,12/24\n対面(オンライン併用型)",
-    "データ更新日": "2026-04-14 12:07:58"
+    "データ更新日": "2026-11-26 13:27:16"
   },
   {
     "科目番号": "0A00202",
@@ -23902,9 +23902,9 @@
     "実施学期": "秋C",
     "曜時限": "集中",
     "担当教員": "オウ ゼイ",
-    "授業概要": "",
+    "授業概要": "This is an intensive graduate-level course in modern macroeconomics. The specific focuses are quantitative\r\nmodels and methods used in modern macroeconomics. In this course, we will learn some typical dynamic\r\nmacroeconomic models, and learn how to solve these models with numerical simulation methods using\r\nMATLAB and Dynare. This course is learning-by-doing lecture-based. We will be working through the\r\ndetails of several typical models of modern macroeconomics. I will provided detailed and self-contained\r\nlecture notes, but students are expected to refer all the materials listed below if necessary. Students are\r\nrequired to redo the derivation and calculation of all models and conduct some replication exercises.\r\n\r\n\r\nStudents should have the knowledge of undergraduate level macroeconomics and microeconomics. This\r\nmeans that students should be familiar with economic meanings such as utility maximization or cost\r\nminimization. Also, students should be comfortable with basic multivariable calculus, Lagrange multiplier\r\nmethod-based optimization, linear algebra, statistics, probability and programming. The replication exercises\r\nrequire students to work with MATLAB and Dynare.",
     "備考": "英語で授業 対面 1/26, 1/27, 1/29, 2/1, 2/3, 2/5, 2/8, 2/10, 2/12, 2/15\n英語で授業。\n1/26, 1/27, 1/29, 2/1, 2/3, 2/5, 2/8, 2/10, 2/12, 2/15\n対面",
-    "データ更新日": "2026-11-12 14:56:18"
+    "データ更新日": "2026-11-26 15:38:44"
   },
   {
     "科目番号": "0ABC418",
@@ -23915,9 +23915,9 @@
     "実施学期": "秋C春季休業中",
     "曜時限": "集中",
     "担当教員": "永易 淳",
-    "授業概要": "",
+    "授業概要": "This course introduces a broad range of time-series methods commonly used in recent academic research, with a focus on frequentist approaches such as GARCH and VAR models. After presenting the theoretical foundations of these methods, the lectures will demonstrate several applications using empirical examples from economics and finance.\r\n\r\nTo support students in applying these techniques in their master’s theses, the course also provides hands-on training with real datasets using the statistical software R, a free and widely available platform for both Windows and Mac users. Through these practical sessions, students will learn how to conduct empirical analysis independently.",
     "備考": "英語で授業 1/23, 1/24:対面式、1/30, 2/6, 2/13, 2/20, 2/23:オンライン\n英語で授業。\n1/23, 1/24, 1/30, 2/6, 2/13, 2/20, 2/23\nオンライン(同時双方向型)",
-    "データ更新日": "2026-11-25 08:19:57"
+    "データ更新日": "2026-11-26 15:47:16"
   },
   {
     "科目番号": "0ABC419",
@@ -50541,7 +50541,7 @@
     "担当教員": "長田 友紀",
     "授業概要": "国語教育の理論および実践について深める。読むこと、書くこと・話すこと・聞くこと、伝統的な言語文化、言語事項などの理論および実践を具体的な取り上げ、教室の調査研究・歴史的研究・他国との比較研究といった手法にもとづき考察する。理論や実践だけでなく、研究手法についても学ぶ。",
     "備考": "詳細後日周知\n対面",
-    "データ更新日": "2025-12-04 12:17:20"
+    "データ更新日": "2026-11-26 15:23:24"
   },
   {
     "科目番号": "0ATAD16",
